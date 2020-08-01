@@ -50,10 +50,12 @@ var xAxisCall = d3.axisBottom(x)
 	.tickFormat(d => {return "$"+formatComma(d);});
 g.append("g")
 	.attr("transform","translate(0," + height + ")")
+	.attr("opacity", 0.6)
 	.call(xAxisCall);
 var yAxisCall = d3.axisLeft(y)
 	.ticks(10);
 g.append("g")
+	.attr("opacity", 0.6)
 	.call(yAxisCall);
 
 //labels
@@ -61,20 +63,22 @@ var xLabel = g.append("text")
 	.attr("x",width / 2)
 	.attr("y", height + 30)
 	.attr("font-size", 13)	
+	.attr("opacity", 0.6)
 	.attr("text-anchor", "middle") //centering
 	.text("GDP Per Capita ($)");
 var yLabel = g.append("text")
 	.attr("transform", "rotate(-90)")
 	.attr("x", -height /2)
 	.attr("y", -30)
+	.attr("opacity", 0.6)
 	.attr("text-anchor", "middle")
 	.attr("font-size", 13)
 	.text("Life Expectancy (Yrs)");
 var timeLabel = g.append("text")
 	.attr("x", width - 40)
 	.attr("y", height - 10)
-	.attr("font-size", 40)
-	.attr("opacity", 0.4)
+	.attr("font-size", 35)
+	.attr("opacity", 0.3)
 	.attr("text-anchor", "middle")
 	.text("1800");
 
