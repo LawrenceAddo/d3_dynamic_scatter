@@ -171,6 +171,16 @@ $("#continent-select")
 		update(formattedData[time]);
 	})
 
+$("#date-slider").slider({
+	max: 2014,
+	min: 1800,
+	step: 1,
+	slide: (event, ui)=>{
+		time = ui.value - 1800;
+		update(formattedData[time]);
+	}
+})
+
 //no longer used d3.interval function as we would like jquery to control interval
 function step(){
 	//at the end of our data (1800 to 2014), loop back to 0
@@ -218,7 +228,9 @@ function update(data){
 	console.log(circles);
 
 	//update the time label
-	timeLabel.text(+(time + 1800));
+	timeLabel.text(+(time + 1800)); //bottom big number
+	$("#year")[0].innerHTML = +(time + 1800) //number above slider
+	$("#date-slider").slider("value", +(time + 1800)) //inside slider
 
 }
 
